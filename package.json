@@ -12,9 +12,10 @@
   ],
   "author": "Smailen Vargas",
   "createdAt": "2024-01-19T00:00:00.000Z",
+  "packageManager": "pnpm@10.28.2",
   "scripts": {
-    "dev": "npx tailwindcss -i ./src/input.css -o ./src/output.css --watch",
-    "build": "npx tailwindcss -i ./src/input.css -o ./src/output.css --minify"
+    "dev": "tailwindcss -i ./src/input.css -o ./src/output.css --watch",
+    "build": "tailwindcss -i ./src/input.css -o ./src/output.css --minify"
   },
   "devDependencies": {
     "tailwindcss": "^3.4.3"
