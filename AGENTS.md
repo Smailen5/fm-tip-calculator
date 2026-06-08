@@ -6,8 +6,10 @@ Stack: HTML + [Tailwind CSS v3](https://tailwindcss.com/) + vanilla JS. Nessun f
 ## Comandi
 
 ```bash
-pnpm dev     # tailwindcss --watch (input → output)
-pnpm build   # tailwindcss --minify
+pnpm dev       # tailwindcss --watch (input → output)
+pnpm build     # tailwindcss --minify
+pnpm lint      # ESLint
+pnpm lint:fix  # ESLint con fix automatico
 ```
 
 Apri `index.html` nel browser per vedere il risultato. Non c'è dev server.
@@ -32,6 +34,6 @@ Apri `index.html` nel browser per vedere il risultato. Non c'è dev server.
 ## Note operative
 
 - **`src/output.css` è generato**: ricostruire con `pnpm build` dopo modifiche a `input.css`, `tailwind.config.js`, o ai file in `content: ["*.{html,js}"]`.
-- **Nessun lint/typecheck**: non esistono script per ESLint, Prettier o TypeScript in `package.json`.
+- **Lint**: ESLint con flat config (`eslint.config.js`). Ordine di verifica: `lint`.
 - **Tailwind v3** (non v4): usa `tailwind.config.js` con sintassi `module.exports`.
 - **Git**: un solo commit (`c99496`), `.gitignore` ha placeholder di Frontend Mentor (`.sketch`, `.fig`, `.xd`).
