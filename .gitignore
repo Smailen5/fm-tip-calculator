@@ -1,73 +1,37 @@
-# Template per tutti i progetti
-
 # ==================================================
 # Dipendenze
 # ==================================================
 node_modules/
-/.pnp
-.pnp.js
-
-# ==================================================
-# Log
-# ==================================================
-logs
-*.log
-npm-debug.log*
-yarn-debug.log*
-pnpm-debug.log*
 
 # ==================================================
 # Build e Output
 # ==================================================
-dist/
-dist-ssr/
-build/
-out/
-.next/
-.tsbuildinfo
-*.local
+src/output.css
 *.cache
 
 # ==================================================
-# File di configurazione e Test
-# ==================================================
-coverage/
-.nyc_output/
-.eslintignore
-.eslintrc.cjs
-.netlify
-
-# ==================================================
-# Variabili d'Ambiente (Sicurezza)
+# Variabili d'Ambiente
 # ==================================================
 .env
-.env-local
-.env.development.local
-.env.test.local
+.env.local
 .env.production.local
 
 # ==================================================
-# File di Sistema e IDE
+# Sistema e IDE
 # ==================================================
 .DS_Store
 Thumbs.db
 .vscode/
-!.vscode/extensions.json
 .cursor
-*.suo
-*.ntvs*
-*.njsproj
-*.sln
-*.sw?
 
 # ==================================================
-# Agenti e AI
+# Agenti AI
 # ==================================================
 .agents
 .cursorrules
 
 # ==================================================
-# Frontend Mentor
+# Frontend Mentor (design file)
 # ==================================================
 *.sketch
 *.fig
