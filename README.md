@@ -1,5 +1,8 @@
 # Tip calculator app
 
+![GitHub Release](https://img.shields.io/github/v/release/Smailen5/fm-tip-calculator?style=flat-square&logo=github)
+![GitHub Last Commit](https://img.shields.io/github/last-commit/Smailen5/fm-tip-calculator?style=flat-square&logo=github)
+
 This is a solution to the [Tip calculator app challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/tip-calculator-app-ugJNGbJUX). Frontend Mentor challenges help you improve your coding skills by building realistic projects.
 
 ## Overview
