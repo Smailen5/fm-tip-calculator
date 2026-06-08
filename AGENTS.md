@@ -1,41 +1,46 @@
-# DIRETTIVE LOCALI — templates
+# DIRETTIVE LOCALI — fm-tip-calculator
 
-Questo repository è un **template GitHub** per nuovi progetti. Non contiene codice applicativo, solo boilerplate configurabile. Le regole globali in `~/.config/opencode/AGENTS.md` si applicano sempre.
+Repo vivo (non template): **Frontend Mentor — Tip calculator app**.
+Stack: HTML + [Tailwind CSS v3](https://tailwindcss.com/) + vanilla JS. Nessun framework, nessun test.
 
 ## Comandi
 
 ```bash
-pnpm lint:check        # ESLint
-pnpm lint:fix          # ESLint con fix automatico
-pnpm format:check      # Prettier
-pnpm format:fix        # Prettier con scrittura
-pnpm type-check        # tsc --noEmit
+npm run dev     # tailwindcss --watch (input → output)
+npm run build   # tailwindcss --minify
 ```
 
-Ordine di verifica: `format:check` → `lint:check` → `type-check`.
+Apri `index.html` nel browser per vedere il risultato. Non c'è dev server.
 
-## Stack
+## Architettura
 
-| Strumento  | Versione / Note                                                                                                                        |
-| ---------- | -------------------------------------------------------------------------------------------------------------------------------------- |
-| pnpm       | `9.14.2` (`packageManager` in `package.json`)                                                                                          |
-| TypeScript | 3-file Vite pattern: `tsconfig.json` (root), `tsconfig.app.json` (ES2020+DOM, `src/`), `tsconfig.node.json` (ES2022, `vite.config.ts`) |
-| ESLint     | Flat config, parser TypeScript, plugin Prettier, React opzionale (blocchi segnati `// [React]`)                                        |
-| Prettier   | semi, singleQuote, trailingComma es5, printWidth 80, `prettier-plugin-tailwindcss` incluso                                             |
+| File | Ruolo |
+|---|---|
+| `index.html` | Entry point, carica `src/output.css` e `script.js` |
+| `script.js` | Logica app: calcolo mancia, reset |
+| `src/input.css` | Tailwind directives (`@tailwind base/components/utilities`) |
+| `src/output.css` | **Generato** da Tailwind — non modificare a mano |
+| `tailwind.config.js` | Colori custom, font `Space Mono`, fontSize estesi |
 
-## Convenzioni repository
+## Boilerplate morto (da non usare / da rimuovere)
 
-- **Conventional Commits obbligatori** (`feat:`, `fix:`, `docs:`, `chore:`, `refactor:`, `test:`) — release-please li usa per versionamento
-- **Merge**: solo squash merge via PR, nessun merge commit, history lineare
-- **Branch protection su `main`**: PR obbligatoria, branch up-to-date, linear history, auto-delete head branches
-- **`release-please` remote branch** (`origin/release-please--branches--main--components--templates`) — gestito automaticamente, **non toccarlo**
-- **`.gitignore` è un placeholder** — va sostituito in base allo stack del progetto
-- **`eslint.config.js`** — se non si usa React, rimuovere i blocchi `// [React]` (import, plugins, rules, settings)
-- **Nessun test framework** configurato di default
+Questi file sono stati copiati da un template e non corrispondono al progetto reale:
 
-## Issue e PR su GitHub
+- `eslint.config.js` — importa React e TypeScript parser ma il progetto è JS puro. I blocchi `// [React]` vanno rimossi.
+- `tsconfig.json`, `tsconfig.app.json`, `tsconfig.node.json` — nessun file TypeScript nel repo. `tsconfig.app.json` cerca `src/` (ha solo CSS) e `tsconfig.node.json` cerca `vite.config.ts` (inesistente).
+- `.github/workflows/release-please.yml`, `.github/workflows/opencode.yml`, template Issue/PR — copiati da altro progetto, vanno adattati o rimossi.
+- `.prettierignore`, `.prettierrc` — attivi ma nessuno script per formattare. Vanno puliti se si eliminano gli altri boilerplate.
 
-- Leggi sempre i template prima di creare (`.github/ISSUE_TEMPLATE/`, `.github/pull_request_template.md`)
-- Non cancellare issue: usa `gh issue edit`
-- Body lungo → file temporaneo con `--body-file`
-- Usa `bash -c '...'` per `gh issue create` e `gh issue edit` (evita escaping PowerShell)
+## Convenzioni progetto
+
+- **Conventional Commits obbligatori** (`feat:`, `fix:`, `docs:`, `chore:`, `refactor:`).
+- **Branch**: crea sempre un branch da `main` prima di modificare file. Sintassi: `<tipo>/<nome>` (es. `feat/tasto-custom`).
+- **Atomicità**: `git add` file per file, mai `git add .`. Un commit per unità logica.
+- **Issue/PR**: segui i template in `.github/` se esistono; per body lunghi usa `--body-file`. Non cancellare issue, modificale con `gh issue edit`.
+
+## Note operative
+
+- **`src/output.css` è generato**: ricostruire con `npm run build` dopo modifiche a `input.css`, `tailwind.config.js`, o ai file in `content: ["*.{html,js}"]`.
+- **Nessun lint/typecheck**: non esistono script per ESLint, Prettier o TypeScript in `package.json`.
+- **Tailwind v3** (non v4): usa `tailwind.config.js` con sintassi `module.exports`.
+- **Git**: un solo commit (`c99496`), `.gitignore` ha placeholder di Frontend Mentor (`.sketch`, `.fig`, `.xd`).
